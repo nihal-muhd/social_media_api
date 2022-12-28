@@ -20,10 +20,7 @@ const adminRouter = require('./routes/admin')
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({
-  origin: '*',
-  allowedHeaders: '*'
-}))
+app.use(cors())
 app.use(errorHandler)
 
 app.use('/', userRouter)
