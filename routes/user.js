@@ -11,6 +11,9 @@ const { signup, verifyUser, login, getUserData, getUsers, followUser, unfollowUs
 router.get('/getUserData', getUserData)
 router.get('/get-users', getUsers)
 router.get('/get-user/:userId', getUser)
+router.get('/', (req, res) => {
+  console.log('home')
+})
 
 // signup
 router.post('/signup', signup)
