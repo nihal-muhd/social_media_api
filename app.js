@@ -9,6 +9,9 @@ const colors = require('colors')
 
 const port = process.env.PORT || 5000
 const app = express()
+const options = {
+  origin: '*'
+}
 connectDB()
 
 /* routes */
@@ -17,11 +20,7 @@ const adminRouter = require('./routes/admin')
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({
-  origin: ['https://www.chat.we-share.club'],
-  methods: ['GET', 'POST', 'PUT']
-  // credentials: true
-}))
+app.use(cors(options))
 app.use(errorHandler)
 
 app.use('/', userRouter)
