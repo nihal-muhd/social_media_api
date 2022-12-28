@@ -9,9 +9,9 @@ const colors = require('colors')
 
 const port = process.env.PORT || 5000
 const app = express()
-const options = {
-  origin: '*'
-}
+// const options = {
+//   Access-Control-Allow-Origin: '*'
+// }
 connectDB()
 
 /* routes */
@@ -20,7 +20,9 @@ const adminRouter = require('./routes/admin')
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors(options))
+app.use(cors({
+  origin: '*'
+}))
 app.use(errorHandler)
 
 app.use('/', userRouter)
