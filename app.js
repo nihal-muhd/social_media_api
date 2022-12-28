@@ -21,7 +21,8 @@ const adminRouter = require('./routes/admin')
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: '*'
+  origin: '*',
+  allowedHeaders: '*'
 }))
 app.use(errorHandler)
 
