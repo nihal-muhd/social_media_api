@@ -13,6 +13,7 @@ router.get('/get-users', getUsers)
 router.get('/get-user/:userId', getUser)
 router.get('/', (req, res) => {
   console.log('home')
+  res.json({ status: 'this is home' })
 })
 
 // signup
