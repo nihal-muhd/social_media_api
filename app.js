@@ -12,6 +12,7 @@ const app = express()
 // const options = {
 //   Access-Control-Allow-Origin: '*'
 // }
+app.options('*', cors())
 connectDB()
 
 /* routes */
@@ -21,7 +22,8 @@ const adminRouter = require('./routes/admin')
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: '*'
+  origin: 'https://www.chat.we-share.club',
+  optionsSuccessStatus: 200
 }))
 app.use(errorHandler)
 
