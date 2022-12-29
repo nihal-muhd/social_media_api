@@ -12,7 +12,15 @@ const app = express()
 // const options = {
 //   Access-Control-Allow-Origin: '*'
 // }
-app.options('*', cors())
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  )
+  next()
+})
 connectDB()
 
 /* routes */
@@ -21,10 +29,7 @@ const adminRouter = require('./routes/admin')
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({
-  origin: 'https://www.chat.we-share.club',
-  optionsSuccessStatus: 200
-}))
+app.use(cors())
 app.use(errorHandler)
 
 app.use('/', userRouter)
