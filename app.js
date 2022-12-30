@@ -40,6 +40,7 @@ const io = require('socket.io')(8900, {
 let users = []
 
 const addUser = (userId, socketId) => {
+  // eslint-disable-next-line no-unused-expressions
   !users.some(user => user.userId === userId)
   users.push({ userId, socketId })
 }
