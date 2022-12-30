@@ -21,9 +21,7 @@ const adminRouter = require('./routes/admin')
 
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({
-  origin: '*'
-}))
+app.use(cors())
 app.use(errorHandler)
 
 app.use('/', userRouter)
@@ -33,7 +31,7 @@ app.listen(port, () => console.log(`server started to port ${port}`.brightBlue))
 
 const io = require('socket.io')(8900, {
   cors: {
-    origin: 'https://www.chat.we-share.club/'
+    origin: 'https://www.chat.we-share.club'
   }
 })
 
