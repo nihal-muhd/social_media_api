@@ -33,7 +33,7 @@ app.listen(port, () => console.log(`server started to port ${port}`.brightBlue))
 
 const io = require('socket.io')(8900, {
   cors: {
-    origin: 'http://localhost:3000'
+    origin: 'https://www.chat.we-share.club/'
   }
 })
 
