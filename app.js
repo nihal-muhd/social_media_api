@@ -22,9 +22,7 @@ const adminRouter = require('./routes/admin')
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin: 'https://www.chat.we-share.club',
-  allowedHeaders: '*',
-  methods: '*'
+  origin: '*'
 }))
 app.use(errorHandler)
 
